@@ -55,11 +55,10 @@ export function createBlob(data: Float32Array): Blob {
 
 export function base64ToBlob(base64: string, mimeType: string): globalThis.Blob {
   const byteCharacters = atob(base64);
-  const byteNumbers = new Array(byteCharacters.length);
+  const byteArray = new Uint8Array(byteCharacters.length);
   for (let i = 0; i < byteCharacters.length; i++) {
-    byteNumbers[i] = byteCharacters.charCodeAt(i);
+    byteArray[i] = byteCharacters.charCodeAt(i);
   }
-  const byteArray = new Uint8Array(byteNumbers);
   return new globalThis.Blob([byteArray], { type: mimeType });
 }
 
