@@ -1,0 +1,7 @@
+{
+  "name": "Manifeztorz App",
+  "description": "A comprehensive AI suite featuring real-time voice conversation, smart search grounding, fast chat, audio transcription, and text-to-speech generation powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
