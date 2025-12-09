@@ -4,7 +4,8 @@ export enum AppMode {
   SMART_SEARCH = 'SMART_SEARCH',
   FAST_CHAT = 'FAST_CHAT',
   TRANSCRIBER = 'TRANSCRIBER',
-  TEXT_TO_SPEECH = 'TEXT_TO_SPEECH'
+  TEXT_TO_SPEECH = 'TEXT_TO_SPEECH',
+  IMAGE_EDITOR = 'IMAGE_EDITOR'
 }
 
 export interface ChatMessage {

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { AppMode } from './types';
-import { Mic, Search, Zap, FileAudio, Megaphone } from 'lucide-react';
+import { Mic, Search, Zap, FileAudio, Megaphone, ImagePlus } from 'lucide-react';
 import LiveConversation from './components/LiveConversation';
 import SmartSearch from './components/SmartSearch';
 import FastChat from './components/FastChat';
 import Transcriber from './components/Transcriber';
 import TextToSpeech from './components/TextToSpeech';
+import ImageEditor from './components/ImageEditor';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<AppMode>(AppMode.DASHBOARD);
@@ -22,6 +23,8 @@ const App: React.FC = () => {
         return <Transcriber onBack={() => setMode(AppMode.DASHBOARD)} />;
       case AppMode.TEXT_TO_SPEECH:
         return <TextToSpeech onBack={() => setMode(AppMode.DASHBOARD)} />;
+      case AppMode.IMAGE_EDITOR:
+        return <ImageEditor onBack={() => setMode(AppMode.DASHBOARD)} />;
       case AppMode.DASHBOARD:
       default:
         return (
@@ -118,6 +121,23 @@ const App: React.FC = () => {
                     <div>
                         <h3 className="text-xl font-bold mb-2">Text-to-Speech</h3>
                         <p className="text-slate-400 text-sm">Generate lifelike speech with new TTS models.</p>
+                    </div>
+                </button>
+
+                {/* Image Editor Card */}
+                <button 
+                    onClick={() => setMode(AppMode.IMAGE_EDITOR)}
+                    className="group relative p-8 rounded-3xl bg-slate-800 border border-slate-700 hover:border-teal-500/50 transition-all hover:shadow-[0_0_30px_rgba(20,184,166,0.2)] text-left flex flex-col gap-4 overflow-hidden"
+                >
+                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <ImagePlus size={120} />
+                    </div>
+                    <div className="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center mb-2">
+                        <ImagePlus size={24} />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold mb-2">Image Editor</h3>
+                        <p className="text-slate-400 text-sm">Edit images with prompts using Flash Image.</p>
                     </div>
                 </button>
             </div>
